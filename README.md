@@ -29,9 +29,9 @@ profiles/
 ```bash
 ./publish.sh <config_version> ["changelog message"]
 
-./publish.sh 2.5.0 "new ASA profile"     # bump + commit + tag 2.5.0=2.7.61.0 + push
+./publish.sh 2.5.0 "new ASA profile"     # bump + commit + tag 2.5.0=2.7.63.0 + push
 ./publish.sh 2.5.1 --no-push             # stage locally, don't push
-./publish.sh 2.5.2 "x" --slicer 2.7.61.0 # override the min slicer version (tag right-side)
+./publish.sh 2.5.2 "x" --slicer 2.7.63.0 # override the min slicer version (tag right-side)
 ```
 
 `publish.sh` sets `config_version` in `profiles/DFL-Printers.ini`, prepends a line to
@@ -47,15 +47,16 @@ e.g. a tag `2.4.8` whose committed `.ini` still says `2.4.7` — the upgrade ins
 it never "sticks": the upgrade button appears to do nothing and the app keeps re-offering the update.
 
 **Always publish with `publish.sh`. Do not create tags by hand.** (If you must do it manually: bump
-`config_version` in the `.ini`, commit, then tag `<that exact config_version>=2.7.61.0`.)
+`config_version` in the `.ini`, commit, then tag `<that exact config_version>=2.7.63.0`.)
 
 ### Tag format
 
-`<config_version>=<min_slicer_version>`, e.g. `2.5.0=2.7.61.0`.
+`<config_version>=<min_slicer_version>`, e.g. `2.5.0=2.7.63.0`.
 
 - **left side** = the config version (must equal the `.ini` `config_version`).
-- **right side** = the minimum SuperSlicer DFL version that may receive it; keep at `2.7.61.0` (matches
+- **right side** = the minimum SuperSlicer DFL version that may receive it; keep at `2.7.63.0` (matches
   `min_slic3r_version` in the `.idx`) unless a profile genuinely requires a newer app.
+  Configs since 2.5.0 use `filament_over_bridge_flow_ratio`, which only exists in app 2.7.63.0+.
 
 Clients pick the highest `config_version` among tags whose `min_slicer_version` is `<=` the running app,
 and prompt to update if it's newer than what they have installed.

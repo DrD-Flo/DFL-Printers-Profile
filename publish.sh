@@ -20,7 +20,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 INI="profiles/DFL-Printers.ini"
 IDX="profiles/DFL-Printers.idx"
-SLICER_VERSION="2.7.61.0"   # min slicer version = right side of the tag (matches .idx min_slic3r_version)
+SLICER_VERSION="2.7.63.0"   # min slicer version = right side of the tag (matches .idx min_slic3r_version)
 PUSH=1
 VERSION=""
 MESSAGE=""
