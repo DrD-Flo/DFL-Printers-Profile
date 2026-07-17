@@ -1,4 +1,5 @@
 min_slic3r_version = 2.7.63.0
+2.5.3 0.8mm nozzle variant (Elastic 85A/90A/95A + Rigid prints), TPU 85A filament, fix MakerGear inherits error
 2.5.2 Keep Rigid print and PLA filament selected when switching nozzle sizes
 2.5.1 point config update github at real repo
 2.5.0 per-filament above-bridge flow ratio (FRAB); requires app 2.7.63.0
